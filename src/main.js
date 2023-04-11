@@ -161,7 +161,7 @@ function showMovies(event) {
   
 
   //function for when a change in the director/producer dropdown is detected
-  function handleFiltersChange() {
+  function filtersChange() {
     const selectedProducer = dropdownProducers.value;
     const selectedDirector = dropdownDirectors.value;
     const filtered = filterFilms(films, selectedProducer, selectedDirector);
@@ -188,8 +188,8 @@ function showMovies(event) {
     showPosters(filtered);
   }
   //event that listens for a change in both dropdowns
-  dropdownProducers.addEventListener("change", handleFiltersChange);
-  dropdownDirectors.addEventListener("change", handleFiltersChange);
+  dropdownProducers.addEventListener("change", filtersChange);
+  dropdownDirectors.addEventListener("change", filtersChange);
 
   //default if dropdown is not used
   showPosters(filteredFilms);
