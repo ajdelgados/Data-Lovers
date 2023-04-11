@@ -572,7 +572,7 @@ describe('filterCharacter', () => {
 describe('filterOrden', () => {
   test('should sort characters array alphabetically by name in ascending order', () => {
     // Arrange
-    const charactersArray = [      {        querySelector: () => ({          textContent: 'Name: Chihiro',        }),      },      {        querySelector: () => ({          textContent: 'Name: Totoro',        }),      },      {        querySelector: () => ({          textContent: 'Name: Kiki',        }),      },    ];
+    const charactersArray = [{querySelector: () => ({textContent: 'Name: Chihiro',}),},{querySelector: () => ({textContent: 'Name: Totoro',}),},{querySelector: () => ({textContent: 'Name: Kiki',}),},];
     const container = {
       innerHTML: '',
       appendChild: jest.fn(),
@@ -591,7 +591,7 @@ describe('filterOrden', () => {
 
   test('should sort characters array alphabetically by name in descending order', () => {
     // Arrange
-    const charactersArray = [      {        querySelector: () => ({          textContent: 'Name: Chihiro',        }),      },      {        querySelector: () => ({          textContent: 'Name: Totoro',        }),      },      {        querySelector: () => ({          textContent: 'Name: Kiki',        }),      },    ];
+    const charactersArray = [      {querySelector: () => ({ textContent: 'Name: Chihiro',}),},{querySelector: () => ({textContent: 'Name: Totoro',}),},{querySelector: () => ({textContent: 'Name: Kiki',}),},];
     const container = {
       innerHTML: '',
       appendChild: jest.fn(),
@@ -611,7 +611,7 @@ describe('filterOrden', () => {
 
   test('should leave as it is when both characters are equal', () => {
     // Arrange
-    const charactersArray = [      {        querySelector: () => ({          textContent: 'Name: Chihiro',        }),      },     {        querySelector: () => ({          textContent: 'Name: Chihiro',        }),      }  ];
+    const charactersArray = [{querySelector: () => ({textContent: 'Name: Chihiro',}),},{querySelector: () => ({textContent: 'Name: Chihiro',}),}];
     const container = {
       innerHTML: '',
       appendChild: jest.fn(),
@@ -635,14 +635,14 @@ describe('filterOrden', () => {
 describe('calculatePercentage', () => {
   test('returns the correct percentage', () => {
     const films = [
-      { id: 1, title: 'Film 1' },
-      { id: 2, title: 'Film 2' },
-      { id: 3, title: 'Film 3' },
+      { title: 'Castle in the Sky' },
+      { title: 'Spirited Away' },
+      { title: 'Only Yesterday' },
     ];
 
     const filteredFilms = [
-      { id: 1, title: 'Film 1' },
-      { id: 2, title: 'Film 2' },
+      { title: 'Castle in the Sky' },
+      { title: 'Spirited Away' },
     ];
 
     const result = calculatePercentage(films, filteredFilms);
@@ -652,9 +652,9 @@ describe('calculatePercentage', () => {
 
   test('returns 100 when all films are filtered', () => {
     const films = [
-      { id: 1, title: 'Film 1' },
-      { id: 2, title: 'Film 2' },
-      { id: 3, title: 'Film 3' },
+      { title: 'Castle in the Sky' },
+      { title: 'Spirited Away' },
+      { title: 'Only Yesterday' },
     ];
 
     const filteredFilms = [...films];

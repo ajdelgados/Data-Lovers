@@ -47,7 +47,7 @@ function showMovies(event) {
   event.preventDefault();
   //Modify the homepage background with the plain background image.
   document.getElementById("body").style.backgroundImage="url(images/forest-background.jpg)";
-/*   const mainElement = document.getElementById("main"); */
+  /*   const mainElement = document.getElementById("main"); */
   const returnHome = document.createElement("a");
   const producers = getAllProducers(films);
   const directors = getAllDirectors(films);
@@ -160,71 +160,57 @@ function showMovies(event) {
   mainElement.appendChild(postersContainer);
   
 
-
+  //function for when a change in the director/producer dropdown is detected
   function handleFiltersChange() {
     const selectedProducer = dropdownProducers.value;
     const selectedDirector = dropdownDirectors.value;
     const filtered = filterFilms(films, selectedProducer, selectedDirector);
-
     const percentage = calculatePercentage(films,filtered);
-
+    //text for director and producer when "all" is selected
     let selectedDirectorText = "";
     let selectedProducerText = "";
-    
-
-    if (selectedDirector === 'All') {
-      
-      selectedDirectorText = 'no specific director';
+    if (selectedDirector === "All") {
+      selectedDirectorText = "no specific director";
     } else {
       selectedDirectorText = selectedDirector;
     }
     
-    
-    if (selectedProducer === 'All') {
-      
-      selectedProducerText = 'no specific producer';
+    if (selectedProducer === "All") {  
+      selectedProducerText = "no specific producer";
     } else {
-      
       selectedProducerText = selectedProducer;
     }
     
-
-
     // set the text content of the percentage element
     percentageValue.textContent = `${percentage}% of all movies were directed by ${selectedDirectorText} and were produced by ${selectedProducerText}`;
-
-
-    
 
     //showPosters is passed only the filtered films as an argument
     showPosters(filtered);
   }
-  
+  //event that listens for a change in both dropdowns
   dropdownProducers.addEventListener("change", handleFiltersChange);
-  
   dropdownDirectors.addEventListener("change", handleFiltersChange);
-
 
   //default if dropdown is not used
   showPosters(filteredFilms);
   
 }
 
-function showPosters(filteredFilms) {
+function showPosters(filmsArray) {
   const postersContainer = document.querySelector(".posters-container");
   postersContainer.innerHTML = "";
 
-  for (let i = 0; i < filteredFilms.length; i++) {
+  for (let i = 0; i < filmsArray.length; i++) {
     const divFilm = document.createElement("div");
     divFilm.classList.add("poster");
-    divFilm.innerHTML = `<img src="${filteredFilms[i].poster}" alt="">`;
-    divFilm.setAttribute("id", filteredFilms[i].id);
+    divFilm.innerHTML = `<img src="${filmsArray[i].poster}" alt="">`;
+    divFilm.setAttribute("id", filmsArray[i].id);
     postersContainer.appendChild(divFilm);
     divFilm.addEventListener("click", movieDetails);
   }
 
   //value for movie counter
-  const totalMovies = totalMovie(filteredFilms);
+  const totalMovies = totalMovie(filmsArray);
   const totalValue = document.querySelector(".counter");
   totalValue.innerHTML = `<p> ${totalMovies} movies found</p>`;
 
@@ -324,20 +310,17 @@ function movieDetails(event){
   
   
   //add movieDetails div to the main section
-/*   const mainElement = document.getElementById("main"); */
   mainElement.innerHTML = "";
   // add the return button to the page
   mainElement.appendChild(returnButton);
   mainElement.appendChild(movieDetailsDiv);
-
-  
-
   //change accordion's containers class to active when clicked (this class displays the hidden info)
   const accordion = document.getElementsByClassName("container");
-
+  
+  //adds event that listens for click on each section of the accordion. On click the class is changed to ACTIVE, which displays the info
   for (let i=0; i<accordion.length; i++) {
-    accordion[i].addEventListener('click', function () {
-      this.classList.toggle('active')
+    accordion[i].addEventListener("click", function () {
+      this.classList.toggle("active")
     })
   }
 }
@@ -385,9 +368,9 @@ function showCharacters(event){
   backbtn.textContent = "Back to Home";
   mainElement.innerHTML="";
   mainElement.appendChild(backbtn);
-  //Contador para los personajes
+  //Counter for characters
   mainElement.insertAdjacentHTML('beforeend', `<p class="counter">${totalPeople} characters found</p>`);
-  
+  //Dropdown for characters' species filtering
   const dropdownChar = document.createElement("select");
   const species = getAllSpecies(films);
   species.unshift("All");
@@ -398,7 +381,7 @@ function showCharacters(event){
   labelChar.classList.add("filter-label");
   labelChar.textContent = "Filter by species ";
   labelChar.appendChild(dropdownChar);
-
+  //Dropdown for characters' films
   const dropdownfilms = document.createElement("select");
   const animations = getAllAnimations(films);
   animations.unshift("All");
@@ -409,7 +392,7 @@ function showCharacters(event){
   labelFilms.classList.add("filter-label");
   labelFilms.textContent = "Filter by animation: ";
   labelFilms.appendChild(dropdownfilms);
-
+  //sorting buttons
   const sortCharAsc = document.createElement("button");
   sortCharAsc.classList.add("sortButton");
   sortCharAsc.textContent = "Order A-Z";
@@ -419,9 +402,8 @@ function showCharacters(event){
   sortCharDes.classList.add("sortButton");
   sortCharDes.textContent = "Order Z-A";
   sortCharDes.addEventListener("click",ordenadosAlfabeto)
-
-
-
+  
+  //adding all species as options to dropdownChar
   species.forEach((s) => {
     const link = document.createElement("option");
     link.href = "#"+s;
@@ -432,8 +414,7 @@ function showCharacters(event){
     sortCharDes.innerHTML= "Order Z-A"
   });
 
-  
-
+  //adding all animations as options to dropdownfilms
   animations.forEach((s) => {
     const link = document.createElement("option");
     link.href = "#"+s;
@@ -446,12 +427,11 @@ function showCharacters(event){
   });
 
 
-  
+  //adding elements to main
   mainElement.appendChild(labelChar);
   mainElement.appendChild(labelFilms); 
   mainElement.appendChild(sortCharAsc); 
   mainElement.appendChild(sortCharDes); 
-
   mainElement.insertAdjacentHTML('beforeend', `<div id="charactersBig" >` + films.map((movie) => movie.people.map(character => `
   
     <div class="characterBig" >
@@ -480,8 +460,6 @@ function filterChar() {
   const selectedSpecies = document.getElementById("select-species").value;
   const selectedAnimations = document.getElementById("select-animations").value;
   const characters = document.querySelectorAll(".characterBig");
-  
-
   let totalCount  = 0; 
   characters.forEach((character) => {
     const specie = character.querySelector("h3:nth-child(7)").textContent.split(": ")[1];
@@ -511,16 +489,18 @@ function ordenadosAlfabeto(event) {
   filterOrden(charactersArray, container, order);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
 
-  const menuBtn = document.querySelector('.menu-icon');
-  const menu = document.querySelector('.main-menu ul');
+//menu button for media with smaller screens
+document.addEventListener("DOMContentLoaded", function() {
 
-  menuBtn.addEventListener('click', function() {
-    if(menu.classList.contains('show')){
-      menu.classList.remove('show');
+  const menuBtn = document.querySelector(".menu-icon");
+  const menu = document.querySelector(".main-menu ul");
+
+  menuBtn.addEventListener("click", function() {
+    if(menu.classList.contains("show")){
+      menu.classList.remove("show");
     }else {
-      menu.classList.add('show');
+      menu.classList.add("show");
     }
   });
   
