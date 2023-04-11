@@ -26,6 +26,8 @@ Our second prototype was a high-fidelity interactive prototype that closely rese
 
 ![Prototipo de alta](https://user-images.githubusercontent.com/127158155/229862334-038efa71-fbf4-4c6a-b452-252ce2274bbc.png)
 
+[Prototipo de alta en Figma](https://www.figma.com/file/dQKdtFkQLPWgYc9xywkP8u/Prototipo-de-alta?node-id=0%3A1&t=EwfZXnwWQS9lxwFO-1)
+
 ### User Testing & Iteration
 We conducted user testing on each prototype with a group of our target users, which were mainly young-adults. During each user testing session, we observed how users interacted with our prototypes and asked them to provide feedback on their experience. We used this feedback to identify any usability issues or areas for improvement.
 
