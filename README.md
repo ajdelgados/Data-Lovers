@@ -1,5 +1,5 @@
 # GHIBLIPEDIA
-Our Ghiblipedia is a website dedicated to providing teens or young-adults with information on all Ghibli films. Whether you're a lifelong fan or a newcomer to the world of Ghibli, we have something for everyone.
+Our Ghiblipedia is a website dedicated to providing teens or young-adults with information on all Ghibli films. Whether you're a lifelong fan or a newcomer to the world of Ghibli, we have something for everyone. Our website offers information about Ghibli films, such as their characters, their locations, posters, vehicles and more. 
 
 
 ## Logo
@@ -13,6 +13,13 @@ Our Ghiblipedia is a website dedicated to providing teens or young-adults with i
 | Button & overlay color | ![#A7B07A](https://via.placeholder.com/10x10/a7b07a/) #A7B07A |
 | Top menu button color | ![#DB7776](https://via.placeholder.com/10x10/db7776/) #DB7776 |
 
+## User Stories
+
+Our users needs included 4 main aspects, which were the ones we used to create our user stories. This aspects were: the general information about each movie, directors & producers that participated in each film, characters in the Ghibli universe and the vehicles and locations particular to the films. 
+
+![image](https://user-images.githubusercontent.com/127158155/231207914-6330e85c-c2d9-4c7d-8bd3-ea4651a40713.png)
+
+
 ## Prototypes and Iteration
 During the development process, we created prototypes to test and refine our product's features and user interface. We conducted user testing on each prototype, which helped us gather feedback and insights from our target users. Based on this feedback, we iterated on our prototypes to improve the overall user experience.
 
@@ -20,6 +27,8 @@ During the development process, we created prototypes to test and refine our pro
 Our first prototype was a wireframe. We used this prototype to get feedback on our overall concept and gather insights on how our target users might interact with our product. 
 
 ![Prototipo de baja](https://user-images.githubusercontent.com/90260920/229853980-bad54996-c24c-4ba6-ab89-f4d3d507b36e.png)
+
+[Prototipo de baja en Figma](https://www.figma.com/file/NFjky8DDvdiwdPJAfm7vJy/Prototipo-de-baja?t=EwfZXnwWQS9lxwFO-1)
 
 ### High-Fidelity Prototype: 
 Our second prototype was a high-fidelity interactive prototype that closely resembled the final product. We used this prototype to test the product's usability and gather feedback on any remaining issues or areas for improvement.
