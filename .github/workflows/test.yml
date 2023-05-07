@@ -1,5 +1,9 @@
 name: Test Node Project
-on: [push]
+on:
+  push:
+    branches:
+      - '**'
+      - '!main'
 jobs:
   test:
     runs-on: ubuntu-latest
