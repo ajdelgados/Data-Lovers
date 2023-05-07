@@ -1,0 +1,751 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* Fondo de imagen para el header y estilos  */
+header {
+    width: 100%;
+    height: 150px;
+    background-image: url(images/header.png);
+    background-size: cover;
+    background-position: center;
+    flex-wrap: wrap;/* permite a los elementos hijos flexibles ajustarse en múltiples líneas 
+                    dentro del contenedor flexible, lo que es útil en el diseño responsivo
+                    donde deseo una disposición flexible de los elementos en diferentes tamaños de pantalla. */
+}
+html, body {
+  height: 100%;
+}
+
+body {
+  background-image: url(images/main-background.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 8rem;
+  font-family: 'ITC Avant Garde Gothic Std Book';
+  
+  
+}
+
+/* Contenido principal centrado con sus margenes */
+main {
+margin-top: 4rem;
+margin-bottom: 10rem;
+margin-left: 1rem;
+margin-right: 1rem;
+flex-wrap: wrap;
+
+}
+
+/* Nav de botones pmodificando su posición */
+.main-menu{
+    margin-top: 5rem;
+    display: flex;
+    justify-content: flex-end;
+/*     margin-left: 47rem; */
+
+}
+
+/* Estylos a los botones */
+.main-menu ul{
+    padding: 15px 25px;
+    list-style: none;
+}
+
+
+/* Alineandolos  */
+.main-menu li{
+    display: inline-block;
+}
+
+/* Colores y bordes al boton */
+.main-menu li a{
+    display: block;
+    padding: 0.5rem 1rem;
+    background-color: #DB776D;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 1rem;
+}
+
+/* Estilos para que cambie de color cuando sea seleccionado */
+.main-menu li a:hover{
+    background-color: #A7B07A;
+    color: white;
+}
+
+/* Estilos y formato al titulo principal */
+.title {
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: -50px;
+    margin-bottom: 1rem;
+    max-width: 800px;
+    transform: translateX(20%);
+    font-size: 4rem;
+    line-height: 1.3em;
+}
+
+/* Mensaje de bienvenida */
+.welcomeMsg {
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 500px;
+    margin-left: 40rem;
+    height: 200px;
+    transform: translateX(10%);
+    /* background-color: #DB776D ; */
+/*     opacity: 0.9; */
+    border-radius: 20px;
+    padding-top: 50px;
+}
+
+/* Contenedor de los poster de animación,Alineando el poster y Tamaño a la imagen */
+.posters-container{
+    display: inline-block;
+    align-items: center;
+    /* verify if it's not affecting content fitting on other pcs*/
+    margin-left: 2rem;
+    
+  
+}
+.poster {
+    
+    display: inline-flex;
+    
+}
+.poster img{
+    width:  25rem;
+    margin: 0.5rem;
+    
+}
+
+/* Estilos y formato a la pagina que muestra la animación con su información  */
+.movie-details{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;    
+}
+.movie-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 800px;
+}
+.movie-header h2{
+/*     font-family: 'ITC Avant Garde Gothic Std Book'; */
+    color: white;
+}
+.movie-poster {
+    margin-right: 20px;
+}
+.movie-info {
+    flex: 1;
+}
+
+/* Estilos y formatos al acordeon de la información de las animaciones */
+.accordion {
+  margin-top: 1rem;
+  width: 800px;
+  margin: 90px auto;
+  color:  #6d5041;
+  background-color: #cdbcac;
+  padding: 45px 45px;
+/*   font-family: 'ITC Avant Garde Gothic Std Book'; */
+}
+.accordion .container {
+    position: relative;
+    margin: 10px 10px;
+  }
+.accordion .label {
+    position: relative;
+    padding: 10px 0;
+    font-size: 30px;
+    color: #6d5041;
+    cursor: pointer;
+}
+.accordion .label::before {
+    content: '+';
+    color: white;
+    position: absolute;
+    top: 50%;
+    right: -5px;
+    font-size: 30px;
+    transform: translateY(-50%);
+}
+.accordion .content {
+    position: relative;
+    background: #cdbcac;
+    height: 0;
+    font-size: 20px;
+    text-align: justify;
+    width: 780px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.accordion .container.active .content {
+    height: 200px;
+  }
+    
+.accordion .container.active .label::before {
+    content: '-';
+    font-size: 30px;
+}
+
+  /*Contenedor que contiene los personajes  */
+
+.characterBig {
+/*     transform: translateX(10%); */
+display: inline-block;
+    position: relative;
+    width: 15rem;
+    height: 15rem;
+    margin: 2rem;
+    margin-left: 2.8rem;
+    margin-right: 1rem;
+    
+}
+.characterBig img{
+
+    width: 100%;
+    height: 120%;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    
+}
+
+/* overlay para mostras las caracteristicas al pasar el mouse */
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    color: #f1f1f1;
+    width: 60%;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: 12px;
+    padding: 20px;
+    text-align: left;
+}
+.characterBig:hover .overlay {
+    opacity: 1;
+}  
+
+/*Estilos y formato a las imagenes de los personajes en miniatura */
+.character {
+  display: inline-block;
+  width: 5rem;
+  height: 5rem;
+  margin: 0.5rem;
+  position: relative;
+}
+.character img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+.character div {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #a7b07aa9;
+  color: white;
+  font-size: 0.8rem;
+  padding: 0.25rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+.character:hover div {
+  opacity: 1;
+}
+
+/* Estilos y formato para los vehiculos que se muestran en el acordion */
+.vehicle {
+  display: inline-block;
+  width: 8rem;
+  height: 8rem;
+  margin: 0.5rem;
+  position: relative;
+}
+.vehicle img {
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+.vehicle-details {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 8rem; /* set the tooltip to the left of the image */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 200px;
+  opacity: 0;
+  pointer-events: none; /* prevent the tooltip from interfering with mouse events on the image */
+  transition: opacity 0.3s ease-in-out;
+  font-size: 0.8rem;
+}
+
+
+.vehicle:hover .vehicle-details {
+  opacity: 1;
+}
+
+/*Estilos y formato para los lugares que se muestran en el acordion  */
+.place {
+  display: inline-block;
+  width: 8rem;
+  height: 8rem;
+  margin: 0.5rem;
+  position: relative;
+}
+.place img {
+  z-index: 0  ;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+.place-details {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 8rem; /* set the tooltip to the left of the image */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 200px;
+  opacity: 0;
+  pointer-events: none; /* prevent the tooltip from interfering with mouse events on the image */
+  transition: opacity 0.3s ease-in-out;
+  font-size: 0.8rem;
+}
+
+.place:hover .place-details {
+  opacity: 1;
+}
+
+
+/*Estilos del contador que se va actualizando  */
+.counter{
+  font-size: 1.5rem;
+  color: white;
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+/* formatted footer */
+
+footer {
+/*   position: fixed; */
+  bottom: 0;
+  left: 0;
+  height: auto;
+  width: 100%;
+  background-color: beige;
+  padding: 3rem;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+
+
+/* Botones de filtrado,ordenado y retorno estilos */
+.filter-label {
+    display: inline-block;
+    margin-right: 10px;
+    color: white;
+    font-weight: bold;
+    margin-left: 1rem;
+}
+  
+select.filter {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #6d5041;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+  margin: 1rem;
+}
+.ordenado{
+  color: #6d5041;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+}
+.returnButton {
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 1em;
+  background-color: #329da1;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.25em;
+  border: 2px solid #329da1;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  font-weight: bold;
+}
+  
+  .returnButton:hover {
+  background-color: #fff;
+  color: #329da196;
+  border: 2px solid #329da1;
+}
+  
+.returnButton:active {
+  background-color: #329da1;
+  color: #fff;
+  border: 2px solid #329da1;
+}
+.sortButton {
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 1em;
+  background-color: #a7b07a;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.25em;
+  transition: background-color 0.3s, color 0.3s;
+  font-weight: bold;
+}
+  
+.sortButton:hover {
+  background-color: #fff;
+  color: #a7b07a;
+  
+}
+  
+.sortButton:active {
+  background-color: #a7b07a;
+  color: #fff;
+  
+}
+
+/* Boton para el responsive movil */
+.menu-icon{
+  display: none;
+}
+
+
+/* This space is to give a responsive to the page */
+
+/* Pantallas con un minimo de ancho de 1500px */
+@media (min-width: 1500px) {
+header {
+  background: url(./images/header.png);
+  display: flex;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+body {
+  background: url(./images/main-background.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  padding: 0;
+  height: 100%;
+  padding-bottom: 6rem;
+  /* overflow-x: hidden; */
+}
+.welcomeMsg {
+margin-left: 50rem;
+padding-top: 10px;
+
+font-size: 1em;
+padding-bottom: 4rem;
+background-color: #6d5041;
+}
+.title {
+margin-left: 30rem;
+font-size: 5em;
+width: 5rem;
+}
+.poster img {
+width: 18rem;
+margin-left: -7px;
+}
+.accordion {
+margin-top: 0.5rem;
+width: 200px;
+padding: 30px 30px;
+}
+.accordion .label {
+font-size: 18px;
+}
+.accordion .content {
+font-size: 13px;
+width: 200px;
+}
+.movie-header {
+width: 300px;
+height: 180px;
+}
+.movie-poster img {
+margin-top: 3rem;
+margin-left: -50px;
+width: 16rem;
+height: 8rem;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: beige;
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.8em;
+  height: auto;
+
+}
+.main-menu{
+margin-left: 70rem;
+}
+}
+
+/* Pntallas con un maximo de 760 px */
+@media (max-width: 760px) {
+header {
+background: url(./images/header.png);
+display: flex;
+background-size: cover;
+background-repeat: no-repeat;
+/* width: 100%; */
+}
+body {
+background: url(./images/main-background.png);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+display: flex;
+padding: 0;
+height: 100%;
+padding-bottom: 6rem;
+/* overflow-x: hidden; */
+}
+.welcomeMsg {
+margin-left: 10rem;
+padding-top: 10px;
+width: 30rem;
+padding-bottom: 4rem;
+background-color: #6d5041;
+}
+.title {
+margin-left: 15rem;
+font-size: 2.5em;
+width: 5rem;
+}
+.poster img {
+width: 15rem;
+margin-left: -5px;
+}
+.accordion {
+margin-top: 0.5rem;
+width: 160px;
+padding: 25px 25px;
+}
+.accordion .label {
+font-size: 16px;
+}
+.accordion .content {
+font-size: 12px;
+width: 160px;
+}
+.movie-header {
+width: 250px;
+height: 150px;
+}
+.movie-poster img {
+margin-top: 3rem;
+margin-left: -40px;
+width: 12rem;
+height: 6rem;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: beige;
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.8em;
+  height: auto;
+
+}
+}
+
+/* Para pantallas moviles */
+@media(max-width: 500px) {
+header {
+  background: url(./images/header-mobile\ \(665x179\).png);
+  display: flex;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+body{
+  background: url(./images/forest-background\(390x844\).png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  padding: 0;
+  height: 100%;
+  padding-bottom: 0;
+  overflow-x: hidden
+}
+html {
+  height: 100%;
+}
+.menu-icon{
+  display: block;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  background-color: #DB776D;
+  color: white;
+  border-radius: 5px;
+  margin-left: 18rem;
+  margin-top: 8rem;
+
+}
+
+.main{
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.main-menu ul{
+  display: none;
+}
+
+.main-menu ul.show{
+  padding: 15px 25px;
+  margin-top: -6rem;
+  list-style: none;
+  display: block;
+  text-align: center;
+  position: relative;
+  z-index: 9999;/* Posición enfrente de todo */
+}
+
+.main-menu ul li{
+  display: block;
+  margin-top: 1rem;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: beige;
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.8em;
+  height: auto;
+
+}
+.welcomeMsg {
+  margin: 0;
+  margin-bottom: 2rem;
+  font-size: 0.8em;
+  padding: 0.5em;
+  background-color: #6d5041;
+  text-align: center;
+  margin-left: 80px;
+  padding-bottom: 5rem;
+  width: 15rem;
+}
+.title{
+  margin-left: 1rem;
+  margin-top: 1rem;
+  font-size: 3em;
+  width: 5rem;
+}
+/* animations */
+.poster img{
+  width:  20rem;
+  margin: 0.5rem;
+  margin-left: -9px;
+
+}
+/* info animations */
+.accordion {
+margin-top: 1rem;
+width: 250px;
+margin: 40px auto;
+margin-left: 1px;
+color:  #6d5041;
+background-color: #cdbcac;
+padding: 45px 45px;
+}
+.accordion .label {
+position: relative;
+padding: 10px 0;
+font-size: 20px;
+color: #6d5041;
+cursor: pointer;
+}
+
+.accordion .content {
+position: relative;
+background: #cdbcac;
+height: 0;
+font-size: 15px;
+text-align: justify;
+width: 250px;
+overflow: hidden;
+transition: 0.5s;
+}
+.character{
+width: 40px;
+height: 40px;
+}
+
+.movie-details{
+  display: flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items: center;    
+
+}
+.movie-header{
+  display: flex;
+/*     justify-content: space-between; */
+  align-items: flex-start;
+  width: 350px;
+  height: 200px;
+}
+.movie-header h2{
+  color: white;
+  font-size: 1em;
+}
+
+.movie-poster img {
+margin-top: 4rem;
+margin-left: -60px;
+width: 20rem;
+height: 10rem;
+}
+}
+
