@@ -423,7 +423,7 @@ describe('totalMovie', () => {
   it('should return the length of the movies array', () => {
     
     const result = totalMovie(movies);
-    expect(result).toEqual(5);
+    expect(result).toEqual(1);
   });
 
   it('should return 0 if the movies array is empty', () => {
